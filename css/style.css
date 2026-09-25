@@ -1,0 +1,74 @@
+/* Layout da Grade Mensal */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+
+.calendar-day {
+  min-height: 110px;
+  background-color: #ffffff;
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+  padding: 6px 4px;
+  display: flex;
+  flex-direction: column;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+/* Interatividade nas células com datas válidas */
+.calendar-day:not(.empty) {
+  cursor: pointer;
+}
+
+.calendar-day:not(.empty):hover {
+  background-color: #f1f5f9;
+  border-color: #cbd5e1;
+}
+
+/* Células vazias (preenchimento da semana) */
+.calendar-day.empty {
+  background-color: #fafafa;
+  border: 1px dashed #ededed;
+  cursor: default;
+}
+
+/* Destaque para o dia de hoje */
+.calendar-day.today {
+  border-color: #0d6efd;
+  background-color: #f0f7ff;
+}
+
+.day-number {
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #6c757d;
+  margin-bottom: 4px;
+  padding-left: 2px;
+}
+
+.calendar-day.today .day-number {
+  color: #0d6efd;
+}
+
+/* Pílula / Etiqueta de evento no calendário */
+.event-pill {
+  font-size: 0.72rem;
+  line-height: 1.25;
+  padding: 3px 5px;
+  border-radius: 4px;
+  margin-bottom: 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  text-align: left;
+  border: none;
+  font-weight: 500;
+  display: block;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.event-pill:hover {
+  filter: brightness(0.92);
+}
